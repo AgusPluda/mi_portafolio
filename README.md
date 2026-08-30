@@ -97,8 +97,19 @@ ejercicio VI, y la instalación de PostGIS con la visualización sobre el Geomet
 
 ## Proyectos de práctica
 
-Ejercicios guiados del career path *Data Scientist* de Codecademy. Son proyectos más acotados que los
-anteriores, pero recorren el mismo circuito completo de análisis exploratorio.
+Proyectos más acotados que los anteriores: dos ejercicios guiados del career path *Data Scientist*
+de Codecademy, que recorren el circuito completo de análisis exploratorio, y un tercero de práctica
+autodirigida para incorporar herramientas puntuales de ingeniería de datos.
+
+### [BCRA Data Pipeline](https://github.com/AgusPluda/bcra-data-pipeline)
+
+Pipeline de datos que extrae 5 series económicas de la API del BCRA, las carga de forma idempotente
+en PostgreSQL y las transforma con dbt (capas staging → mart, con tests que cortan el pipeline si
+fallan), todo orquestado por Airflow y empaquetado en Docker Compose. Construido específicamente para
+practicar orquestación y transformación-como-código antes de encarar un proyecto de ingeniería de
+datos más grande.
+
+**Stack:** Apache Airflow 3 (LocalExecutor) · dbt · PostgreSQL · Docker Compose · Python
 
 ### [Life Expectancy & GDP Analysis](https://github.com/AgusPluda/life-expectancy-gdp-analysis)
 
