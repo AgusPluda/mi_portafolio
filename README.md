@@ -9,8 +9,9 @@ hallazgo comunicado— y documenta el porqué de cada decisión, no sólo el res
 Están armados con un criterio deliberado: cada proyecto nuevo cubre una herramienta o un dominio que
 los anteriores no mostraban. Por eso conviven el modelado y la construcción de pipelines —capas
 `raw` → `core` → `marts`, ETL y cubos OLAP—, el machine learning aplicado, el SQL analítico y la
-visualización en Power BI y Tableau, sobre dominios tan distintos como la banca minorista, el retail
-mayorista y la logística portuaria.
+visualización en Power BI y Tableau, y un lakehouse en Databricks con RAG y un agente de IA, sobre
+dominios tan distintos como la banca minorista, el retail mayorista, la logística portuaria y el
+mercado cripto.
 
 ## Índice
 
@@ -22,6 +23,22 @@ mayorista y la logística portuaria.
 ---
 
 ## Proyectos personales
+
+### [Crypto Lakehouse en Databricks](https://github.com/AgusPluda/crypto-lakehouse-databricks)
+
+Pipeline de datos de punta a punta sobre datos reales del mercado cripto, construido en Databricks Free
+Edition: precios del top 25 de CoinGecko cada 30 minutos y noticias por RSS, que pasan por una
+arquitectura medallion (Bronze → Silver → Gold) con una dimensión SCD Type 2 y se orquestan con tres
+Jobs encadenados. Sobre el mismo Gold, gobernado en un único Unity Catalog, conviven un pipeline de ML
+con MLflow —con un *guard* que solo promueve un modelo si supera a un baseline: por ahora ninguno lo
+logra con la historia disponible, y el proyecto lo documenta tal cual—, un RAG sobre las noticias con
+Vector Search y un agente LangGraph con cuatro herramientas SQL, servido en Model Serving. Se consume
+desde un dashboard AI/BI con Genie, una Databricks App y una [demo pública en
+Next.js](https://crypto-lakehouse-databricks.vercel.app/) que se puede probar en vivo. El repositorio
+conserva también la bitácora de decisiones, incluido el deploy del agente, que llevó 11 versiones y
+cinco causas de fallo distintas.
+
+**Stack:** Databricks (Delta Lake, Unity Catalog, Workflows, Vector Search, Model Serving) · PySpark · MLflow · LangChain / LangGraph · AI/BI Dashboards y Genie · Databricks Apps (AppKit, React) · Next.js · Vercel
 
 ### [Czech Bank SQL Analytics](https://github.com/AgusPluda/czech-bank-sql-analytics)
 
@@ -106,8 +123,7 @@ autodirigida para incorporar herramientas puntuales de ingeniería de datos.
 Pipeline de datos que extrae 5 series económicas de la API del BCRA, las carga de forma idempotente
 en PostgreSQL y las transforma con dbt (capas staging → mart, con tests que cortan el pipeline si
 fallan), todo orquestado por Airflow y empaquetado en Docker Compose. Construido específicamente para
-practicar orquestación y transformación-como-código antes de encarar un proyecto de ingeniería de
-datos más grande.
+practicar orquestación y transformación-como-código.
 
 **Stack:** Apache Airflow 3 (LocalExecutor) · dbt · PostgreSQL · Docker Compose · Python
 
