@@ -98,7 +98,7 @@ híbridas resueltas con ambas fuentes.
 herramientas SQL y RAG, la ingesta de los PDFs, la app en Streamlit, la observabilidad y la batería de
 evaluación.
 
-**Stack:** Python · LangGraph · Gemini API (agente, embeddings y LLM-as-judge) · PostgreSQL + pgvector · Streamlit · Arize Phoenix · Docker Compose · pytest
+**Stack:** Python · LangGraph · Gemini API (agente, embeddings y LLM-as-judge) · PostgreSQL + pgvector · Streamlit · Arize Phoenix · Docker Compose · pytest · Spec Kit
 
 ### [Data Warehouse y cubos OLAP para logística internacional](https://github.com/AgusPluda/bdd3-tp2-DW-OLAP)
 
