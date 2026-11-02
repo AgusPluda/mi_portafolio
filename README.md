@@ -81,6 +81,25 @@ Trabajos prácticos de Ingeniería en Informática (Universidad Católica de San
 Departamento Académico Rafaela), reorganizados y documentados después de la entrega. En cada uno
 detallo cuál fue mi participación dentro del grupo.
 
+### [Agente conversacional SQL + RAG para un gimnasio](https://github.com/AgusPluda/tp-ia-generativa)
+
+Trabajo Práctico Integrador de IA Generativa (2026). Asistente que responde preguntas sobre un
+gimnasio, en castellano o en inglés, combinando una base PostgreSQL de siete tablas —socios, planes,
+clases, asistencias, pagos, equipamiento— con tres documentos PDF consultados por búsqueda semántica
+en pgvector. Un agente LangGraph decide para cada pregunta si consultar la base, los documentos, ambas
+fuentes o rechazarla, y cada respuesta muestra de dónde salió: la consulta SQL ejecutada y el documento
+y la página citados. El agente **solo lee**, con la restricción aplicada en varias capas —incluido un
+rol de base de datos de solo lectura—, y rechaza cualquier pedido de modificación. Se evalúa con una
+batería de 26 preguntas corrida tres veces contra el agente real, con un LLM como juez: 97,4 % de
+aciertos promedio, todas las modificaciones rechazadas con la base intacta y todas las preguntas
+híbridas resueltas con ambas fuentes.
+
+*Mi participación:* la especificación y el diseño del sistema, y la implementación del agente, sus
+herramientas SQL y RAG, la ingesta de los PDFs, la app en Streamlit, la observabilidad y la batería de
+evaluación.
+
+**Stack:** Python · LangGraph · Gemini API (agente, embeddings y LLM-as-judge) · PostgreSQL + pgvector · Streamlit · Arize Phoenix · Docker Compose · pytest
+
 ### [Data Warehouse y cubos OLAP para logística internacional](https://github.com/AgusPluda/bdd3-tp2-DW-OLAP)
 
 Trabajo Práctico Final de Base de Datos III (2025). Data Warehouse en **esquema de constelación**
